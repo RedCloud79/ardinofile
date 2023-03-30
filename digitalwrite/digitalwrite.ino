@@ -2,7 +2,8 @@ const int Led = 13;
 
 void setup() {
   pinMode(Led, OUTPUT);
-  digitalWrite(Led, HIGH);
+  //digitalWrite(Led, HIGH);
+  digitalWrite(Led, LOW);
 }
 
 void loop() {
