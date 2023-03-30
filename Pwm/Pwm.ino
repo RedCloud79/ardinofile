@@ -28,11 +28,10 @@ void loop() {
   // Serial.println(sersor);
   // delay(100);
   
-  for (int i = 0; i< 102; i++){
-    int num = i*10;
-    Timer1.setPwmDuty(LED, num);
-    delay(50);
-    
+  for (int i = 0; i< 1023; i++){
+    i = i*2;
+    Timer1.setPwmDuty(LED, i);
+    delay(100);
   }
   
 
