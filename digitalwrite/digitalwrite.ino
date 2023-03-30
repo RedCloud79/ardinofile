@@ -7,9 +7,11 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(Led, HIGH);
-  delay(1);
-  digitalWrite(Led, LOW);
-  delay(27);
+  for ( int t_high = 0; t_high<=10; t_high++){
+    digitalWrite(Led, HIGH);
+    delay(t_high);
+    digitalWrite(Led, LOW);
+    delay(10-t_high);
+  }
 
 }
