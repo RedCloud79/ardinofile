@@ -1,18 +1,19 @@
-int led = 10;
+#include <TimerOne.h>
+
+const int BUZZER = 10;
 int analogPin = A0;
 
+
 void setup() {
-  pinMode(led, OUTPUT);
+  Timer1.initialize();
+  Timer1.pwm(BUZZER, 0);
+  Timer1.setPwmDuty(BUZZER, 100);
 }
 
 void loop() {
 int val = analogRead(analogPin);
-int light = map(val, 0, 1023, 0, 255);
-  if (val == 30){
-    analogWrite(led, 255); 
-    delay(1000);
-  }else{
-    analogWrite(led, 0);
-  }
+//tone(BUZZER,map(val, 0, 1023, 0, 3000), 1);
+Timer1.setPeriod(1000000/map(val, 0, 1023, 0, 3000));
+      delay(500);
 }
 
