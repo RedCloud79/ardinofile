@@ -21,21 +21,20 @@ void setup() {
 
 void loop() {
   byte buttonState = digitalRead(BUTTON_PIN);
-  unsigned long t1_now = millis();
-  unsigned long t2_now = millis();
   if(buttonState == LOW){
+    unsigned long t1_now = millis();
     if(t1_now - t1_prev >= t1_delay){
       t1_prev = t1_now;
       on_off++;
       digitalWrite(t1_LED, on_off);
-      //Serial.println("t1");
+      Serial.println(t1_now);
     }
-  
+    unsigned long t2_now = millis();
     if(t2_now - t2_prev >= t2_delay){
       t2_prev = t2_now;
       t_high++;
       digitalWrite(t2_LED, t_high);
-      //Serial.println("\tt2");
+      Serial.println(t2_now);
     }
   }else{
     if (on_off>1) on_off = 0;
