@@ -1,5 +1,8 @@
-unsigned long t_prev = 0;
-const unsigned long t_delay = 1000;
+unsigned long t1_prev = 0;
+const unsigned long t1_delay = 1000;
+
+unsigned long t2_prev = 0;
+const unsigned long t2_delay = 500;
 
 void setup() {
   Serial.begin(115200);
@@ -7,11 +10,16 @@ void setup() {
 }
 
 void loop() {
-  unsigned long t_now = millis();
-  if (t_now - t_prev >= t_delay){
-    t_prev = t_now;
+  unsigned long t1_now = millis();
+  if (t1_now - t1_prev >= t1_delay){
+    t1_prev = t1_now;
 
-    Serial.println(t_now);
+    Serial.println(" t1 ");
   }
+  unsigned long t2_now = millis();
+  if (t2_now - t2_prev >= t2_delay){
+    t2_prev = t2_now;
 
+    Serial.println(" \tt2 ");
+  }
 }
