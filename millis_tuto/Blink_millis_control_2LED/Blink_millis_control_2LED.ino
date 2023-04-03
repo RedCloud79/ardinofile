@@ -15,6 +15,7 @@ const unsigned long t2_delay = 500;
 void setup() {
   pinMode(t1_LED, OUTPUT);
   pinMode(t2_LED, OUTPUT);
+  Serial.begin(115200);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
 }
 
@@ -27,12 +28,14 @@ void loop() {
       t1_prev = t1_now;
       on_off++;
       digitalWrite(t1_LED, on_off);
+      //Serial.println("t1");
     }
   
     if(t2_now - t2_prev >= t2_delay){
       t2_prev = t2_now;
       t_high++;
       digitalWrite(t2_LED, t_high);
+      //Serial.println("\tt2");
     }
   }else{
     if (on_off>1) on_off = 0;
