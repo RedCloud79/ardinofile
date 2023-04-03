@@ -3,10 +3,10 @@
 
 NDelayFunc::NDelayFunc(
     const unsigned long t_delay,
-    void(*t_func)())
-    : t_prev(0), t_delay(t_delay), t_func(t_func) {}
+    void(*func)())
+    : t_prev(0), t_delay(t_delay), func(func) {}
 
-void NDelayFunc::fun() {
+void NDelayFunc::run() {
     unsigned long t_now = millis();
     if(t_now - t_prev >= t_delay) {
         t_prev = t_now;

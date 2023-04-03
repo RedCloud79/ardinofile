@@ -1,3 +1,5 @@
+#include <NDelayFunc.h>
+
 class NDelayFunc {
   unsigned long t_prev;
   const unsigned long t_delay;
