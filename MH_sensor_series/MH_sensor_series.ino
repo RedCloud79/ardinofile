@@ -15,7 +15,10 @@ value_A0 = analogRead(IN_A0); // reads the analog input from the IR distance sen
 value_D0 = digitalRead(IN_D0);// reads the digital input from the IR distance sensor
 Serial.print(" Analogue = "); 
 Serial.print(value_A0);
-Serial.print("\t Digital ="); 
-Serial.println(value_D0);
+if(value_D0 == 1){
+  Serial.println("\t Digital = Dark"); 
+}else {
+  Serial.println("\t Digital = Bright"); 
+}
 delay(100);
 }
