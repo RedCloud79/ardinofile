@@ -5,6 +5,8 @@ const int echoPin = 10;
 const int led6 = 6;
 const int led5 = 5;
 const int ser = 11;
+const int but = 3;
+const int but4 = 4;
 Servo servo;
 
 float duration, distance;
@@ -21,6 +23,8 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(led5, OUTPUT);
   pinMode(led6, OUTPUT);
+  pinMode(but, INPUT);
+  pinMode(but4, INPUT);
   servo.attach(ser);
   servo.write(180);
   Serial.begin(9600);
@@ -39,6 +43,14 @@ void loop() {
   Serial.println(distance);
   delay(100);
 
+  if(digitalRead(but) == HIGH){
+    servo.write(0); //열림
+  }
+  if(digitalRead(but4) == HIGH){
+    servo.write(180); //닫힘
+
+  }
+
   switch(int(distance)) {
     case 0 ... 9:
         servo.write(0);
@@ -46,7 +58,7 @@ void loop() {
         break;
     case 10 ... 19:
         servo.write(10);
-        digitalWrite(led6, HIGH);
+        blink();
         break;
     case 20 ... 29:
         servo.write(20);
