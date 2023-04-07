@@ -23,8 +23,6 @@ void loop() {
   if (buttonState != lastButtonState) {
     if (buttonState == HIGH) {
       buttonPushCounter++;
-      Serial.println("on");
-      Serial.print("number of button pushes: ");
       Serial.println(buttonPushCounter);
     } else {
       Serial.println("off");
