@@ -10,7 +10,8 @@ const int sensor_pin = A0;
 const int Yled =6;
 const int Rled =7;
 
-unsigned long threesec = millis();
+unsigned long threesec = 0;
+unsigned long latethreesec = 0;
 
 
 // Variables will change:
@@ -37,12 +38,13 @@ void setup()
 
 void loop()
  {
- buttonState = digitalRead(Bbutton); 
- buttonState_1 = digitalRead(Gbutton);    
-int button_state;
-  if (buttonState != lastButtonState) buttonHigh=buttonCheck(button_state);
-  inturthree();
-  //Serial.println(threesec);
+    
+    buttonState = digitalRead(Bbutton); 
+    buttonState_1 = digitalRead(Gbutton);    
+    int button_state;
+    if (buttonState != lastButtonState) buttonHigh=buttonCheck(button_state);
+    inturthree();
+    //Serial.println(threesec);
 }
 int buttonCheck(int button_vlaue) {
     
@@ -78,14 +80,17 @@ int buttonCheck(int button_vlaue) {
 }  
 
 void inturthree(){
-  //threesec++;
-  if (threesec + 2000 < millis()){
+  threesec = millis();
+  if (threesec - latethreesec >= 2000){
     if(buttonState == HIGH){
-      digitalWrite(Yled, HIGH);
-      
-    }else{
       digitalWrite(Yled, LOW);
-      threesec = millis();
+      latethreesec = threesec;
+    }else{
+      digitalWrite(Yled, HIGH);
+      delay(100);
+      digitalWrite(Yled, LOW);
+      threesec = 0;
+      latethreesec = 0;
     }
     
   }
