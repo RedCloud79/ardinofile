@@ -44,7 +44,7 @@ int button_state;
   if(threesec < 60000){
     inturthree();
   }else{
-    threesec = millic();
+    threesec = millis();
   }
 }
 int buttonCheck(int button_vlaue) {
