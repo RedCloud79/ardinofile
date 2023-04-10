@@ -41,7 +41,7 @@ void loop()
  buttonState_1 = digitalRead(Gbutton);    
 int button_state;
   if (buttonState != lastButtonState) buttonHigh=buttonCheck(button_state);
-  // inturthree();
+  inturthree();
 }
 int buttonCheck(int button_vlaue) {
     
@@ -76,16 +76,16 @@ int buttonCheck(int button_vlaue) {
    }
 }  
 
-// void inturthree(){
-//   threesec++;
-//   if (threesec >= 3000){
-//     if(buttonState_1 == HIGH){
-//       digitalWrite(Yled, HIGH);
+void inturthree(){
+  threesec++;
+  if (threesec >= 3000){
+    if(buttonState_1 == HIGH){
+      digitalWrite(Yled, HIGH);
       
-//     }else{
-//       digitalWrite(Yled, LOW);
-//       threesec = 0;
-//     }
-//     millis();
-//   }
-// }
+    }else{
+      digitalWrite(Yled, LOW);
+      threesec = 0;
+    }
+    millis();
+  }
+}
