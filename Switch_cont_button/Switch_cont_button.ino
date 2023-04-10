@@ -10,7 +10,7 @@ const int sensor_pin = A0;
 const int Yled =6;
 const int Rled =7;
 
-int threesec = 0;
+int threesec = millis();
 
 
 // Variables will change:
@@ -77,15 +77,15 @@ int buttonCheck(int button_vlaue) {
 }  
 
 void inturthree(){
-  threesec++;
-  if (threesec >= 3000){
+  //threesec++;
+  if (threesec + 2000 < millis()){
     if(buttonState_1 == HIGH){
       digitalWrite(Yled, HIGH);
       
     }else{
       digitalWrite(Yled, LOW);
-      threesec = 0;
+      threesec = millis();
     }
-    millis();
+    
   }
 }
