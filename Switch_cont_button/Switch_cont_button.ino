@@ -79,7 +79,7 @@ int buttonCheck(int button_vlaue) {
 void inturthree(){
   //threesec++;
   if (threesec + 2000 < millis()){
-    if(buttonState_1 == HIGH){
+    if(buttonState == HIGH){
       digitalWrite(Yled, HIGH);
       
     }else{
