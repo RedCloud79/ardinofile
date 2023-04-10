@@ -10,7 +10,7 @@ const int sensor_pin = A0;
 const int Yled =6;
 const int Rled =7;
 
-int threesec = millis();
+unsigned long threesec = millis();
 
 
 // Variables will change:
@@ -41,7 +41,11 @@ void loop()
  buttonState_1 = digitalRead(Gbutton);    
 int button_state;
   if (buttonState != lastButtonState) buttonHigh=buttonCheck(button_state);
-  inturthree();
+  if(threesec < 60000){
+    inturthree();
+  }else{
+    threesec = millic();
+  }
 }
 int buttonCheck(int button_vlaue) {
     
