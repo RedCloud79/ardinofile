@@ -68,7 +68,7 @@ int buttonCheck(int button_vlaue) {
      button_pressed=0;
      Serial.println("ON");
      digitalWrite(Wled, LOW);
-     delay(3000);
+     
      lastButtonState = buttonState; 
      }
      
