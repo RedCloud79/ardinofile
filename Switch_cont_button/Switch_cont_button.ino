@@ -10,7 +10,7 @@ const int sensor_pin = A0;
 const int Yled =6;
 const int Rled =7;
 
-unsigned long threesec = millis();
+unsigned int threesec = millis();
 
 
 // Variables will change:
