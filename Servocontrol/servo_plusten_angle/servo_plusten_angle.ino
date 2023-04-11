@@ -3,7 +3,6 @@
 Servo myservo;
 int buttonPin = 3;
 int servoPin = 10;
-int buttonState = 0;
 int angle = 0;
 int angval = 0;
 int buttonval = 0;
@@ -13,7 +12,7 @@ void setup() {
   pinMode(buttonPin, INPUT);
 }
 void loop() {
-  buttonState = digitalRead(buttonPin);
+  int buttonState = digitalRead(buttonPin);
   if (buttonState == HIGH) {
     buttonval = buttonval + 1;
     if (buttonval <= 18){
