@@ -31,9 +31,8 @@ void setup() {
 }
 
 void loop() {
-  int buttonInput = digitalRead(button);
-
-  if(buttonInput == 1){
+  
+  if(digitalRead(button) == 1){
     for ( int angle = 0; angle <= 180; angle++){
     servo.write(angle);
     delay(10);
