@@ -1,7 +1,6 @@
 const int alog = A0;
 const int Rled = 7;
 const int Yled = 6;
-const int Wled = 5;
 int senser = 255;
 int senser_1 = 0;
 
@@ -9,7 +8,6 @@ void setup() {
   Serial.begin(9600);
   pinMode (Rled,OUTPUT);
   pinMode (Yled,OUTPUT);
-  pinMode (Wled,OUTPUT);
 }
 
 void loop() {
