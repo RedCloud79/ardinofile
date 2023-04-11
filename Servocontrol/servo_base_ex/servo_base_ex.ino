@@ -32,17 +32,17 @@ void setup() {
 
 void loop() {
   
-  if(digitalRead(button) == 1){
-    for ( int angle = 0; angle <= 180; angle++){
-    servo.write(angle);
-    delay(10);
-    }
-    for ( int angle = 180; angle >= 0; angle--){
-    servo.write(angle);
-    delay(10);
-    } 
-  } 
-  else servo.write(0);
+  // if(digitalRead(button) == 1){
+  //   for ( int angle = 0; angle <= 180; angle++){
+  //   servo.write(angle);
+  //   delay(10);
+  //   }
+  //   for ( int angle = 180; angle >= 0; angle--){
+  //   servo.write(angle);
+  //   delay(10);
+  //   } 
+  // } 
+  // else servo.write(0);
 
   
   // if(Serial.available()){
