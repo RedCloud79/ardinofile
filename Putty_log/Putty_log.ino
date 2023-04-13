@@ -12,13 +12,11 @@ void setup() {
 }
 
 void loop() {
-  //int lightState = analogRead(light);
   if(digitalRead(but_1) == HIGH){
     Serial.println("테스트 시작");
     cnt++;
     while (cnt >= 1){
-      int lightState = analogRead(light);
-      Serial.println(lightState);
+      Serial.println(analogRead(light));
       delay(1000);
     if(digitalRead(but_2) == HIGH){
       cnt = 0;
