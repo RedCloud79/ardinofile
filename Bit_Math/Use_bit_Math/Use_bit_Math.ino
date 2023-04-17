@@ -9,7 +9,7 @@ void setup() {
   //Serial.begin(9600);
   DDRD |= B11100000;
   DDRD &= B11100111;
-  PIND = B00011000;
+  PIND = B00010000;
   //DDRB |= B00111111;
 }
 
