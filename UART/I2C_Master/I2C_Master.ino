@@ -19,17 +19,17 @@ void setup() {
 void loop() {
   if(digitalRead(but_1) == HIGH){
      if(c% 2 == 0){
-    digitalWrite(Led_1, HIGH);
-    digitalWrite(Led_2, HIGH);
-    digitalWrite(Led_3, HIGH);
+      digitalWrite(Led_1, HIGH);
+      digitalWrite(Led_2, HIGH);
+      digitalWrite(Led_3, HIGH);
     
 
-  }else if(c% 2 != 0){
-    digitalWrite(Led_1, LOW);
-    digitalWrite(Led_2, LOW);
-    digitalWrite(Led_3, LOW);
-    
-  }
+    }else if(c% 2 != 0){
+      digitalWrite(Led_1, LOW);
+      digitalWrite(Led_2, LOW);
+      digitalWrite(Led_3, LOW);
+      
+    }
   }
   if(digitalRead(but_2) == HIGH){
     i2c_communication();
