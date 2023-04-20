@@ -6,6 +6,7 @@
 #define Led_3 7
 #define SLAVE 4 // 슬레이브 주소
 char c;
+
 void setup() {
   pinMode(but_1, INPUT);
   pinMode(but_2, INPUT);
@@ -22,13 +23,12 @@ void loop() {
       digitalWrite(Led_1, HIGH);
       digitalWrite(Led_2, HIGH);
       digitalWrite(Led_3, HIGH);
-    
-
+      delay(15);
     }else if(c% 2 != 0){
       digitalWrite(Led_1, LOW);
       digitalWrite(Led_2, LOW);
       digitalWrite(Led_3, LOW);
-      
+      delay(15);
     }
   }
   if(digitalRead(but_2) == HIGH){
