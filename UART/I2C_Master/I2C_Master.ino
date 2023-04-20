@@ -33,7 +33,7 @@ void loop() {
   }
   if(digitalRead(but_2) == HIGH){
     i2c_communication();
-    delay(500);
+    //delay(500);
   } 
 }
 void i2c_communication() {
