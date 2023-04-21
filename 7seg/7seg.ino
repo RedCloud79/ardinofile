@@ -1,157 +1,43 @@
-void setup()
-{
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
-  pinMode(9, OUTPUT);
-  pinMode(10, OUTPUT);
-  pinMode(11, OUTPUT);
-  pinMode(12, OUTPUT);
-  pinMode(13, OUTPUT);
+int DS_pin  = 4;
+int STCP_pin =3;
+int SHCP_pin = 2;
+
+int digits [10][8]{
+  {0,1,1,1,1,1,1,0}, // digit 0
+  {0,0,1,1,0,0,0,0}, // digit 1
+  {0,1,1,0,1,1,0,1}, // digit 2
+  {0,1,1,1,1,0,0,1}, // digit 3
+  {0,0,1,1,0,0,1,1}, // digit 4
+  {0,1,0,1, 1,0,1,1}, // digit 5
+  {0,1,0,1,1,1,1,1}, // digit 6
+  {0,1,1,1,0,0,0,0}, // digit 7
+  {0,1,1,1,1,1,1,1}, // digit 8
+  {0,1,1,1,1,0,1,1}  // digit 9
+};
+
+void setup(){
+  pinMode(DS_pin, OUTPUT);
+  pinMode(STCP_pin, OUTPUT);
+  pinMode(SHCP_pin, OUTPUT);
 }
 
-void loop()
+
+void DisplayDigit(int Digit)
 {
-  // 0
-  for (int i = 0; i<10; i++){
-    if (i==0){
-    delay(1000);
-    digitalWrite(7,HIGH);
-    digitalWrite(8,HIGH);
-    digitalWrite(9,HIGH);
-    digitalWrite(10,HIGH);
-    digitalWrite(11,HIGH);
-    digitalWrite(12,HIGH);    
-  	delay(1000);
-    digitalWrite(7,LOW);
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(10,LOW);
-    digitalWrite(11,LOW);
-    digitalWrite(12,LOW);
-  	delay(1000);
-    }
-    else if(i ==1){
-    digitalWrite(9,HIGH);
-    digitalWrite(12,HIGH);
-  	delay(1000);
-    digitalWrite(9,LOW);
-    digitalWrite(12,LOW);
-  	delay(1000);
-    }
-    else if(i ==2){
-    digitalWrite(7,HIGH);    
-    digitalWrite(9,HIGH);
-    digitalWrite(10,HIGH);
-    digitalWrite(11,HIGH);    
-    digitalWrite(13,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);    
-    digitalWrite(9,LOW);
-    digitalWrite(10,LOW);
-    digitalWrite(11,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    else if(i ==3){
-    digitalWrite(7,HIGH);    
-    digitalWrite(9,HIGH);    
-    digitalWrite(11,HIGH);
-    digitalWrite(12,HIGH);
-    digitalWrite(13,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);    
-    digitalWrite(9,LOW);    
-    digitalWrite(11,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    else if(i ==4){    
-    digitalWrite(8,HIGH);
-    digitalWrite(9,HIGH);    
-    digitalWrite(12,HIGH);
-    digitalWrite(13,HIGH);
-  	delay(1000);    
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    else if(i ==5){
-    digitalWrite(7,HIGH);
-    digitalWrite(8,HIGH);   
-    digitalWrite(11,HIGH);
-    digitalWrite(12,HIGH);
-    digitalWrite(13,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);
-    digitalWrite(8,LOW);
-    digitalWrite(11,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    else if(i ==6){
-    digitalWrite(7,HIGH);
-    digitalWrite(8,HIGH);
-    digitalWrite(10,HIGH);
-    digitalWrite(11,HIGH);
-    digitalWrite(12,HIGH);
-    digitalWrite(13,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);
-    digitalWrite(8,LOW);
-    digitalWrite(10,LOW);
-    digitalWrite(11,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    else if(i ==7){
-    digitalWrite(7,HIGH);    
-    digitalWrite(9,HIGH);
-    digitalWrite(12,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(12,LOW);
-  	delay(1000);
-    }
-    else if(i ==8){
-    digitalWrite(7,HIGH);
-    digitalWrite(8,HIGH);
-    digitalWrite(9,HIGH);
-    digitalWrite(10,HIGH);
-    digitalWrite(11,HIGH);
-    digitalWrite(12,HIGH);
-    digitalWrite(13,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(10,LOW);
-    digitalWrite(11,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    else if(i ==9){
-    digitalWrite(7,HIGH);
-    digitalWrite(8,HIGH);
-    digitalWrite(9,HIGH);
-    digitalWrite(11,HIGH);
-    digitalWrite(12,HIGH);
-    digitalWrite(13,HIGH);
-  	delay(1000);
-    digitalWrite(7,LOW);
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(11,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
-  	delay(1000);
-    }
-    
-  }
+    digitalWrite(STCP_pin,LOW);
+    for (int i = 7; i>=0; i--)
+   {
+    digitalWrite(SHCP_pin,LOW);
+    if (digits[Digit][i]==1) digitalWrite(DS_pin, LOW); 
+    if (digits[Digit][i]==0) digitalWrite(DS_pin, HIGH);
+    digitalWrite(SHCP_pin,HIGH);
+   }
+   digitalWrite(STCP_pin, HIGH); 
 }
+
+void loop() {
+  for (int i=0;i<10;i++){  
+    DisplayDigit(i);  
+    delay(1000);
+  }
+} 
