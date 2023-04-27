@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 //Initial pin number
-const int bluetoothRX = 10;
-const int bluetoothTX = 8;
+const int bluetoothRX = 3;
+const int bluetoothTX = 2;
 //Define to use bluetooth module
 SoftwareSerial ble ( bluetoothTX, bluetoothRX );
 void setup() {
